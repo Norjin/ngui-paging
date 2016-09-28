@@ -6,7 +6,7 @@
     /* global angular */
     var ui = angular.module('ngui-paging', []);
     ui
-        .provider("$nguiConfig", function () {
+        .provider("$nguiPagingConfig", function () {
             var baseTemplateUrl = "/tpl-bootstrap";
 
             return {
@@ -23,11 +23,11 @@
             };
         })
 
-        .directive('nguiPaging', ['$nguiConfig',
-            function ($nguiConfig) {
+        .directive('nguiPaging', ['$nguiPagingConfig',
+            function ($nguiPagingConfig) {
                 return {
                     templateUrl: function (elem, attrs) {
-                        return attrs.templateUrl || $nguiConfig.baseTemplateUrl + '/paging.htm';
+                        return attrs.templateUrl || $nguiPagingConfig.baseTemplateUrl + '/paging.htm';
                     },
                     restrict: 'A',
                     transclude: true,
